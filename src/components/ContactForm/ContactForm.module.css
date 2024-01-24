@@ -1,0 +1,18 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.formField {
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+.submitButton {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
