@@ -1,16 +1,50 @@
 .contactCard {
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 2px solid #3498db;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  margin-bottom: 10px;
 }
 
+.contactCard:hover {
+  border-color: #2980b9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  color: #333;
+  margin-right: 8px;
+}
+.textName {
+  margin-bottom: 8px;
+}
+.icon {
+  color: #3498db;
+  transition: color 0.3s ease-in-out;
+}
+.contactCard:hover .icon,
+.contactCard:focus .icon {
+  color: #2980b9;
+}
 .deleteButton {
-  background-color: #ff5050;
+  padding: 4px 8px;
+  font-size: 14px;
+  background-color: #e74c3c;
   color: #fff;
   border: none;
-  padding: 5px 10px;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.deleteButton:hover {
+  background-color: #c0392b;
 }

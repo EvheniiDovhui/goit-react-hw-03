@@ -1,5 +1,16 @@
 .searchInput {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
+  padding: 10px;
+  margin-right: 12px;
+  font-size: 16px;
+  border: 2px solid #3498db;
+  border-radius: 5px;
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.searchInput:focus,
+.searchInput:hover {
+  border-color: #2980b9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }

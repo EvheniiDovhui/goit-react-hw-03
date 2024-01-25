@@ -5,11 +5,10 @@ const ContactList = ({ contacts, onDeleteContact }) => {
   return (
     <ul className={styles.contactList}>
       {contacts.map(contact => (
-        <Contact
-          key={contact.id}
-          contact={contact}
-          onDeleteContact={onDeleteContact}
-        />
+        <li key={contact.id}>
+          {/* Fix: Correct placement of FaPhone */}
+          <Contact contact={contact} onDeleteContact={onDeleteContact} />
+        </li>
       ))}
     </ul>
   );

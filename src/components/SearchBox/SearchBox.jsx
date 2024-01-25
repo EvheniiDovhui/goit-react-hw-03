@@ -1,15 +1,14 @@
 import styles from './SearchBox.module.css';
 
-const SearchBox = ({ searchTerm, onSearchChange }) => {
+const SearchBox = ({ value, onChange }) => {
   return (
     <input
       type="text"
-      placeholder="Search contacts..."
-      value={searchTerm}
-      onChange={e => onSearchChange(e.target.value)}
+      placeholder="Search contacts"
+      value={value}
+      onChange={onChange}
       className={styles.searchInput}
     />
   );
 };
-
 export default SearchBox;
