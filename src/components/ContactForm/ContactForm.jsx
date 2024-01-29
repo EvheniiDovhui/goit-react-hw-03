@@ -25,35 +25,17 @@ const ContactForm = ({ onAddContact }) => {
 
   const [boxShadowColor, setBoxShadowColor] = useState('#000');
   const [borderColor, setBorderColor] = useState('#3498db');
-  const [countryCode, setCountryCode] = useState('US');
 
   useEffect(() => {
     setBoxShadowColor(getRandomColor());
+    setBorderColor(getRandomColor());
   }, []);
 
-  const handleCountryCodeChange = newCode => {
-    setCountryCode(newCode);
-  };
-
-  const formatPhoneNumber = value => {
-    // Видаляємо всі тире зі строки та додаємо тире після кожних 3 і 5 символів
-    return value
-      .replace(/-/g, '')
-      .replace(/(\d{3})(\d{0,2})(\d{0,2})/, '$1-$2-$3');
-  };
-
-  const onNumberChange = (e, setFieldValue) => {
-    const formattedValue = formatPhoneNumber(e.target.value);
-    setFieldValue('number', formattedValue);
-  };
-
   const onSubmit = (values, { resetForm }) => {
-    const formattedNumber = formatPhoneNumber(values.number);
-
     const newContact = {
       id: `id-${Date.now()}`,
       name: values.name,
-      number: formattedNumber,
+      number: values.number,
     };
 
     onAddContact(newContact);
@@ -68,45 +50,36 @@ const ContactForm = ({ onAddContact }) => {
       validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
-      {({ setFieldValue }) => (
-        <Form
-          className={styles.formContainer}
-          style={{
-            boxShadow: `0 0 10px ${boxShadowColor}`,
-            border: `2px solid ${borderColor}`,
-          }}
-        >
-          <div>
-            <h1 className={styles.title}>Phonebook</h1>
-            <label htmlFor="name"></label>
-            <Field
-              type="text"
-              id="name"
-              name="name"
-              className={styles.formField}
-              placeholder="Name"
-            />
-            <ErrorMessage name="name" component="div" className="error" />
-          </div>
+      <Form className={styles.formContainer}>
+        <div>
+          <h1 className={styles.title}>Phonebook</h1>
+          <label htmlFor="name"></label>
+          <Field
+            type="text"
+            id="name"
+            name="name"
+            className={styles.formField}
+            placeholder="Name"
+          />
+          <ErrorMessage name="name" component="div" className="error" />
+        </div>
 
-          <div>
-            <label htmlFor="number"></label>
-            <Field
-              type="text"
-              id="number"
-              name="number"
-              className={styles.formField}
-              placeholder="Number"
-              onChange={e => onNumberChange(e, setFieldValue)}
-            />
-            <ErrorMessage name="number" component="div" className="error" />
-          </div>
+        <div>
+          <label htmlFor="number"></label>
+          <Field
+            type="text"
+            id="number"
+            name="number"
+            className={styles.formField}
+            placeholder="Number"
+          />
+          <ErrorMessage name="number" component="div" className="error" />
+        </div>
 
-          <button type="submit" className={styles.submitButton}>
-            Add Contact
-          </button>
-        </Form>
-      )}
+        <button type="submit" className={styles.submitButton}>
+          Add Contact
+        </button>
+      </Form>
     </Formik>
   );
 };
