@@ -17,6 +17,12 @@
   margin: 10px 0 20px 0;
   background-color: #ecf0f1;
   text-align: center;
+  border: 2px solid #3498db;
+}
+.formContainer:hover,
+.formContainer:focus {
+  border-color: #2980b9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 .title {
   text-align: center;
